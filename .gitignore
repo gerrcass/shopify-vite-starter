@@ -1,0 +1,12 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.
+node_modules/
+build-tools/node_modules/
+build-tools/package-lock.json
