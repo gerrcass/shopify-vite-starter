@@ -12390,11 +12390,32 @@ function EffectCards(_ref) {
 const modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax, Zoom, Controller, A11y, History, HashNavigation, Autoplay, Thumb, freeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards];
 Swiper.use(modules);
 window.Alpine = module_default;
-module_default.data("exampleComponent", () => ({
+module_default.data("pdpSwiperComponent", () => ({
   init() {
-    if (document.querySelector(".example-slider")) {
-      new Swiper(".example-slider", {
-        // Add Swiper options as needed
+    if (document.querySelector(".pdp-main-swiper")) {
+      let getDirection2 = function() {
+        const direction = window.innerWidth <= 1180 ? "horizontal" : "vertical";
+        return direction;
+      };
+      var getDirection = getDirection2;
+      const swiper = new Swiper(".pdp-thumb-swiper", {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 3.6,
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: getDirection2(),
+        on: {
+          resize: function() {
+            swiper.changeDirection(getDirection2());
+          }
+        }
+      });
+      new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        thumbs: {
+          swiper
+        }
       });
     }
   }

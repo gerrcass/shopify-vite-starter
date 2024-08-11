@@ -1,0 +1,609 @@
+{% assign selected_variant = product.selected_or_first_available_variant %}
+{% assign accent_color = '#DD3E6B' %}
+<p class="tw-text-8xl tw-text-red-500">AQUI</p>
+<section
+  id="main-product"
+  class="tw-pt-[19px] tw-pb-[57px] tablet:tw-pt-[53px] desk:tw-pt-[88px] desk:tw-pb-[118px] {% if product.title contains 'Salted Caramel' %} salted-caramel {% elsif product.title contains 'Tart Cherry' %} tart-cherry {% endif %}"
+  x-data="{ open: false, toggle() { this.open = ! this.open } }"
+  data-subscribe-message="{{ section.settings.subscribe_message }}"
+  data-onetime-message="{{ section.settings.onetime_message }}"
+  data-how-it-works="{{ section.settings.how_it_works }}"
+>
+  <div class="desk:tw-max-w-container-large tw-mx-auto tw-flex tw-flex-col large:tw-flex-row tw-gap-9">
+    <div class="tw-w-full large:tw-w-7/12 tw-flex tw-flex-col large:tw-flex-row-reverse tw-gap-6 tw-overflow-hidden">
+      <div x-data="pdpSwiperComponent" class="tw-w-full tw-h-full large:tw-relative">
+        <!-- Swiper -->
+        <div class="tw-px-8 tablet:tw-px-6">
+          <div
+            class="swiper pdp-main-swiper large:!tw-h-[590px] large:!tw-w-4/5 desk:!tw-w-[572px] !tw-border-2 !tw-border-opacity-50 !tw-aspect-square large:!tw-ml-auto large:!tw-absolute !tw-right-0 !tw-z-10"
+            style="border-color: {{ accent_color }};"
+          >
+            <div class="swiper-wrapper">
+              {% for item in (0..5) %}
+                {% if product.media[item] %}
+                  <div class="swiper-slide !tw-block">
+                    {% render 'image-element',
+                      image: product.media[item].src,
+                      lazy: true,
+                      class: 'tw-w-full tw-h-full tw-object-cover'
+                    %}
+                    {% comment %} <img src="{{ product.media[item].src | image_url: width: 500 }}" class="tw-w-full tw-h-full tw-object-cover" alt="{{ product.media[item].src.alt | default: shop.name }}" width="{{ product.media[item].src.width }}" height="{{ product.media[item].src.height }}"> {% endcomment %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div
+          thumbsSlider=""
+          class="swiper pdp-thumb-swiper large:!tw-h-[592px] !tw-ml-8 tablet:!tw-ml-6 !tw-py-5 tablet:!tw-py-6 large:!tw-py-0 wide-desk:!tw-m-0"
+        >
+          <div class="swiper-wrapper large:!tw-flex-col large:!tw-gap-[0.875rem] ">
+            {% for item in (0..5) %}
+              <div class="swiper-slide !tw-aspect-[1.1724] !tw-flex-grow !tw-min-w-[92.73px] tablet:!tw-w-[118px] large:!tw-m-0 large:!tw-w-[94.35px] large:!tw-h-[80.47px] xl:!tw-w-[102px] xl:!tw-h-[87px] !tw-overflow-hidden">
+                {% if product.media[item] %}
+                  {% render 'image-element',
+                    image: product.media[item].src,
+                    lazy: true,
+                    class: 'tw-w-full tw-h-full tw-object-cover'
+                  %}
+                {% else %}
+                  <div
+                    class="tw-w-full tw-h-full !tw-bg-transparent"
+                  ></div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Swiper end -->
+      </div>
+    </div>
+    <div class="tw-px-8 tablet:tw-px-6 large:tw-px-0 tw-w-full large:tw-w-5/12">
+      <div
+        class="tw-w-full"
+      >
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'title' %}
+              <div class="tablet:tw-flex large:tw-block">
+                <h1 class="tw-w-full tablet:tw-w-1/2 large:tw-w-full tw-font-gotham-book tw-text-3xl tablet:tw-text-4xl tw-leading-[30px] tablet:tw-leading-9 tw-tracking-[-0.04em]">
+                  {{ product.title }}
+                  <span class="tw-block tw-font-gotham-book tw-uppercase tw-text-base tw-leading-6 tw-tracking-normal">
+                    {{- section.settings.subtitle -}}
+                  </span>
+                </h1>
+
+                <div class="tw-w-full tablet:tw-w-1/2 tablet:tw-items-end tablet:tw-justify-end large:tw-justify-start large:tw-w-full tw-mt-5 tablet:tw-mt-0 large:tw-mt-5 tw-flex tw-items-center tw-gap-3">
+                  <div class="tw-flex tw-items-center tw-gap-1 star-reviews">
+                    {% for _ in (1..5) %}
+                      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.5 0L11.6329 6.90983H18.535L12.9511 11.1803L15.084 18.0902L9.5 13.8197L3.91604 18.0902L6.04892 11.1803L0.464963 6.90983H7.36712L9.5 0Z" fill="black"/>
+                      </svg>
+                    {% endfor %}
+                  </div>
+                  <p class="tw-font-gotham-book tw-text-sm tw-leading-[21px]">5 Reviews</p>
+                </div>
+              </div>
+            {% when 'description' %}
+              <p class="tw-font-gotham-thin tw-mt-5 tw-text-sm tw-leading-[21px] large:tw-max-w-[396px]">
+                {{ product.description | strip_html | truncate: 200 }}
+              </p>
+            {% when 'nutrition_facts_drawer' %}
+              <div
+                @click="toggle()"
+                class="tw-mt-8 tablet:tw-mt-6 large:tw-mt-8 tw-font-gotham-medium tw-text-base tw-underline tw-cursor-pointer"
+              >
+                {{ block.settings.title }}
+              </div>
+              <div
+                class="tw-bg-white tw-text-black tw-overflow-auto tw-w-full tw-h-full tw-pt-[23px] tw-pl-5 md:tw-pl-9 tw-pr-5 md:tw-pr-[92px] tw-max-w-[524px] tw-right-0 tw-bg-gray-150 tw-pb-[25px] tw-border-l tw-fixed tw-top-0 z-50"
+                style="display:none"
+                x-show="open"
+                x-transition:enter="tw-transition-all tw-ease-out tw-duration-200"
+                x-transition:enter-start="tw-right-full"
+                x-transition:enter-end="tw-right-0"
+                x-transition:leave="tw-transition-all tw-ease-in tw-duration-200"
+                x-transition:leave-start="tw-right-0"
+                x-transition:leave-end="tw-right-full"
+                @click.away="toggle()"
+              >
+                <div class="tw-flex tw-justify-end tw-mr-[54px] md:tw-mr-0">
+                  <div class="go-cart-button-wrapper tw-overflow-hidden">
+                    {% render 'go-cart-button' %}
+                  </div>
+                  {% if shop.customer_accounts_enabled %}
+                    <a
+                      href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+                      class="tw-inline-block tw-pl-8"
+                    >
+                      {% render 'icon-account' %}
+                    </a>
+                  {% endif %}
+                </div>
+                <h2 class="tw-font-gotham-medium tw-text-2xl tw-mb-[14px] tw-pt-[59px]">Nutrition Facts</h2>
+                <div @click="toggle()" class="tw-absolute tw-top-6 tw-right-6 tw-cursor-pointer">
+                  {% render 'icon-cancel' %}
+                </div>
+                {% assign item_class = 'tw-font-gotham-medium tw-text-sm tw-flex tw-justify-between tw-pb-[14px]' %}
+                <div class="{{ item_class }} tw-border-b tw-mb-[14px]">
+                  <p>Serving size</p>
+                  <div>{{ block.settings.serving_size }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Calories</p>
+                  <div>{{ block.settings.calories }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Total Fat</p>
+                  <div>{{ block.settings.total_fat }}</div>
+                </div>
+                <div class="{{ item_class }} tw-pl-7">
+                  <p>Satured Fat</p>
+                  <div>{{ block.settings.satured_fat }}</div>
+                </div>
+                <div class="{{ item_class }} tw-pl-7">
+                  <p>Trans Fat</p>
+                  <div>{{ block.settings.trans_fat }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Cholesterol</p>
+                  <div>{{ block.settings.cholesterol }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Sodium</p>
+                  <div>{{ block.settings.sodium }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Total Carbohydrates</p>
+                  <div>{{ block.settings.total_carbohydrates }}</div>
+                </div>
+                <div class="{{ item_class }} tw-pl-7">
+                  <p>Dietary Fiber</p>
+                  <div>{{ block.settings.dietary_fiber }}</div>
+                </div>
+                <div class="{{ item_class }} tw-pl-7">
+                  <p>Total Sugar</p>
+                  <div>{{ block.settings.total_sugar }}</div>
+                </div>
+                <div class="{{ item_class }} tw-border-b mb-[14px]">
+                  <p>Protein</p>
+                  <div>{{ block.settings.protein }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Vitamin D</p>
+                  <div>{{ block.settings.vitamin_d }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Calcium</p>
+                  <div>{{ block.settings.calcium }}</div>
+                </div>
+                <div class="{{ item_class }}">
+                  <p>Iron</p>
+                  <div>{{ block.settings.iron }}</div>
+                </div>
+                <div class="{{ item_class }} tw-border-b tw-[14px]">
+                  <p>Potassium</p>
+                  <div>{{ block.settings.potassium }}</div>
+                </div>
+                <div>
+                  <p class="tw-text-sm tw-font-gotham-medium tw-mb-[14px]">Ingredients</p>
+                  <div class="tw-text-sm tw-font-gotham-light">{{ block.settings.ingredients }}</div>
+                </div>
+                <div>
+                  <p class="tw-text-sm tw-font-gotham-medium tw-my-[14px]">Allergens</p>
+                  <div class="tw-text-sm tw-font-gotham-light">{{ block.settings.allergens }}</div>
+                </div>
+              </div>
+            {% when 'good_for' %}
+              <div class="tw-mt-8">
+                <h2 class="tw-mt-7 tw-font-gotham-light tw-uppercase tw-text-xs tw-leading-[18px]">
+                  {{ block.settings.title }}
+                </h2>
+                <div class="tw-mt-[6px] tw-flex tw-items-center tw-gap-[25px]">
+                  {% if block.settings.good_for_1_logo %}
+                    <div class="tw-flex tw-items-center tw-gap-[10px]">
+                      {% render 'image-element',
+                        image: block.settings.good_for_1_logo,
+                        class: 'tw-w-[25px] tw-h-[25px]'
+                      %}
+                      <h3 class="tw-font-gotham-book tw-text-sm tw-leading-[21px]">
+                        {{ block.settings.good_for_1_text }}
+                      </h3>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.good_for_2_logo %}
+                    <div class="tw-flex tw-items-center tw-gap-[10px]">
+                      {% render 'image-element', image: block.settings.good_for_2_logo, class: 'w-[25px] h-[25px]' %}
+                      <h3 class="tw-font-gotham-book tw-text-sm tw-leading-[21px]">
+                        {{ block.settings.good_for_2_text }}
+                      </h3>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% when 'checkout_button' %}
+              <div class="tw-relative tw-w-5 tw-h-5 tw-hidden">
+                <svg
+                  class="tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw-translate-x-1/2 tw-translate-y-1/2"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="10" cy="10" r="9.5" stroke="black"/>
+                </svg>
+                <svg
+                  class="tw-hidden tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw-translate-x-1/2 tw-translate-y-1/2"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="7" cy="7" r="6.5" fill="#DD3E6B" stroke="black"/>
+                </svg>
+              </div>
+              <div class="tw-mt-7">
+                {% if product.available %}
+                  <p class="tw-font-gotham-light tw-uppercase tw-text-xs tw-leading-[18px]">
+                    Choose your price (12 Bars)
+                  </p>
+                  <div class="tw-mt-[14px] large:tw-max-w-[396px]" id="recharge-observer">
+                    {% assign form_id = 'add-to-cart-'
+                      | append: product.handle
+                      | append: '-'
+                      | append: collection.handle
+                      | append: '-'
+                      | append: section.id
+                    %}
+                    {% form 'product', product, id: form_id, novalidate: 'novalidate' %}
+                      <input type="hidden" name="id" value="{{ selected_variant.id }}">
+                      <div class="tw-mt-5 tablet:tw-mt-10 large:tw-mt-5 tw-flex tw-items-center tw-justify-between tw-gap-2 large:tw-max-w-[396px]">
+                        <button
+                          type="submit"
+                          id="add-to-cart"
+                          class="js-go-cart-add-to-cart tw-w-fit tw-font-gotham-light tw-py-3 tw-px-[15px] tw-text-white tw-text-xs tw-leading-3 tw-uppercase tw-bg-black tw-transition hover:tw-bg-cherry disabled:tw-opacity-30 disabled:hover:tw-cursor-pointer"
+                          {% if selected_variant.available == false %}
+                            disabled
+                          {% endif %}
+                        >
+                          {% if selected_variant.available == false %}
+                            Sold out
+                          {% else %}
+                            add to cart | <span class="product-price"></span>
+                          {% endif %}
+                        </button>
+                        <div
+                          id="saving-copy"
+                          class="hidden"
+                        >
+                          <div class="tw-flex tw-items-center tw-justify-normal">
+                            <p
+                              class="tw-font-gotham-book tw-text-sm tw-text-right tw-leading-[21px] tw-text-[#1E0ED8] tablet:tw-hidden large:tw-block"
+                            >
+                              You’re saving
+                              <span id="saving-amount">
+                                {{-
+                                  selected_variant.selling_plan_allocations.first.compare_at_price
+                                  | minus: selected_variant.selling_plan_allocations.first.price
+                                  | money
+                                -}}</span
+                              >!
+                            </p>
+                            <svg
+                              class="tw-ml-[7px] tw-hidden desk:tw-block"
+                              width="13"
+                              height="19"
+                              viewBox="0 0 13 19"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M11.6374 0H0.942902L0 0.942902V18.1036L1.56758 18.81L6.29024 14.6341L11.0129 18.81L12.5804 18.1036V0.942902L11.6374 0Z" fill="#1E0ED8"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    {% endform %}
+                  </div>
+                {% else %}
+                  {% if section.settings.headline %}
+                    <h3 class="tracking-custom tw-font-gotham-book tw-text-2xl tw-pt-5">
+                      {{ section.settings.headline }}
+                    </h3>
+                  {% endif %}
+                  {% if section.settings.subheadline %}
+                    <p class="tw-text-sm tw-font-gotham-light tw-my-3">{{ section.settings.subheadline }}</p>
+                  {% endif %}
+                  <form id="klaviyoForm">
+                    <label for="emailInput" class="hidden">Email:</label>
+                    <input
+                      type="email"
+                      id="emailInput"
+                      name="email"
+                      placeholder="Email Address"
+                      class="tw-mb-3 tw-pl-5 placeholder:tw-text-black tw-w-full tw-max-w-[396px] tw-h-[50px] tw-font-gotham-light tw-text-black tw-border tw-border-black"
+                      required
+                    >
+                    <button
+                      type="submit"
+                      class="tw-uppercase tw-text-white tw-bg-black tw-font-gotham-light tw-text-xs tw-w-[100px] tw-h-[50px] tw-flex tw-justify-center tw-items-center"
+                    >
+                      notify me
+                    </button>
+                  </form>
+                  <div class="tw-text-sm tw-font-gotham-light tw-hidden" id="bis-successMessage">
+                    {{ section.settings.success_message }}
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // const klaviyoForm = document.getElementById("klaviyoForm");
+  // const successMessage = document.getElementById("bis-successMessage");
+  // const variantId = {{ selected_variant.id }};
+  // klaviyoForm.addEventListener("submit", function(event) {
+  //   event.preventDefault();
+  //   const emailInput = document.getElementById("emailInput");
+  //   const email = emailInput.value;
+  //   fetch("https://a.klaviyo.com/onsite/components/back-in-stock/subscribe", {
+  //     "headers": {
+  //       "accept": "application/json, text/plain, */*",
+  //       "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+  //     },
+  //     "body": new URLSearchParams({
+  //         "a": "TrtEtA",
+  //         "email": email,
+  //         "platform": "shopify",
+  //         "variant": variantId
+  //     }),
+  //     "method": "POST",
+  //   })
+  //   .then(response => {
+  //       console.log(response);
+  //       klaviyoForm.style.display = "none";
+  //       successMessage.style.display = "block";
+  //   })
+  //   .catch(err => {
+  //       console.error(err);
+  //   });
+  // });
+</script>
+
+{% schema %}
+{
+  "name": "Main product - Elevate",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium Protein Bars"
+    },
+    {
+      "type": "header",
+      "content": "Default verbiage"
+    },
+    {
+      "type": "checkbox",
+      "id": "onetime_message",
+      "label": "One time purchase option",
+      "info": "One-time Purchase (12 Bars)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "subscribe_message",
+      "label": "Subscribe & save option",
+      "info": "Subscribe & Save",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "how_it_works",
+      "label": "How it works",
+      "info": "Products are automatically delivered on your schedule. No obligation, modify or cancel your subscription anytime",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo back in stock form"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Out of stock"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Get notified when we have more in stock."
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "We will notify you as soon as possible!!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "nutrition_facts",
+      "name": "Nutrition Facts",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "checkout_button",
+      "name": "Checkout Button",
+      "limit": 1
+    },
+    {
+      "type": "good_for",
+      "name": "Good For",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "header",
+          "content": "Logo 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "good_for_1_logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "good_for_1_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Logo 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "good_for_2_logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "good_for_2_text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "nutrition_facts_drawer",
+      "name": "Nutrition Facts Drawer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Nutrition Facts"
+        },
+        {
+          "type": "text",
+          "id": "serving_size",
+          "label": "Serving size"
+        },
+        {
+          "type": "text",
+          "id": "calories",
+          "label": "Calories"
+        },
+        {
+          "type": "text",
+          "id": "total_fat",
+          "label": "Total Fat"
+        },
+        {
+          "type": "text",
+          "id": "satured_fat",
+          "label": "Saturated Fat"
+        },
+        {
+          "type": "text",
+          "id": "trans_fat",
+          "label": "Trans Fat"
+        },
+        {
+          "type": "text",
+          "id": "cholesterol",
+          "label": "Cholesterol"
+        },
+        {
+          "type": "text",
+          "id": "sodium",
+          "label": "Sodium"
+        },
+        {
+          "type": "text",
+          "id": "total_carbohydrates",
+          "label": "Total Carbohydrates"
+        },
+        {
+          "type": "text",
+          "id": "dietary_fiber",
+          "label": "Dietary Fiber"
+        },
+        {
+          "type": "text",
+          "id": "total_sugar",
+          "label": "Total Sugar"
+        },
+        {
+          "type": "text",
+          "id": "protein",
+          "label": "Protein"
+        },
+        {
+          "type": "text",
+          "id": "vitamin_d",
+          "label": "Vitamin D"
+        },
+        {
+          "type": "text",
+          "id": "calcium",
+          "label": "Calcium"
+        },
+        {
+          "type": "text",
+          "id": "iron",
+          "label": "Iron"
+        },
+        {
+          "type": "text",
+          "id": "potassium",
+          "label": "Potassium"
+        },
+        {
+          "type": "richtext",
+          "id": "ingredients",
+          "label": "Ingredients"
+        },
+        {
+          "type": "richtext",
+          "id": "allergens",
+          "label": "Allergens"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main product - Elevate",
+      "category": "General"
+    }
+  ]
+}
+{% endschema %}

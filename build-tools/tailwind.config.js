@@ -16,7 +16,23 @@ export default {
     path.resolve(__dirname, './src/**/*.js'),
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        mobile: '428px',
+        tablet: '769px',
+        large: '1180px',
+        desk: '1440px',
+        'wide-desk': '1920px',
+      },
+      maxWidth: {
+        desk: '1440px',
+        'wide-desk': '1920px',
+        'container-small': '25em', // 400px
+        'container-medium': '52em', // 832px
+        'container-large': '78.75em', // 1260px
+        'container-wide': '92.125em', // 1474px
+      },
+    },
   },
   plugins: [
     remToPxPlugin({

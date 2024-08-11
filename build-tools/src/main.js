@@ -7,13 +7,36 @@ import 'swiper/css/bundle';
 window.Alpine = Alpine;
 
 // Define an Alpine component
-Alpine.data('exampleComponent', () => ({
+Alpine.data('pdpSwiperComponent', () => ({
   init() {
     // Initialize Swiper only if the component is present in the DOM
-    if (document.querySelector('.example-slider')) {
-      new Swiper('.example-slider', {
-        // Add Swiper options as needed
+    if (document.querySelector('.pdp-main-swiper')) {
+      const swiper = new Swiper('.pdp-thumb-swiper', {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 3.6,
+        freeMode: true,
+        watchSlidesProgress: true,
+        direction: getDirection(),
+        on: {
+          resize: function () {
+            swiper.changeDirection(getDirection());
+          },
+        },
       });
+
+      new Swiper('.mySwiper2', {
+        spaceBetween: 10,
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+
+      function getDirection() {
+        const direction = window.innerWidth <= 1180 ? 'horizontal' : 'vertical';
+
+        return direction;
+      }
     }
   },
 }));
