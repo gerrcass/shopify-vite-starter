@@ -3,113 +3,70 @@
     "main": {
       "type": "main-product-elevate",
       "blocks": {
-        "vendor": {
-          "type": "text",
+        "ef337366-5c3d-42c9-b8e7-7608d8cf0da8": {
+          "type": "title",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
           }
         },
-        "title": {
-          "type": "title"
-        },
-        "caption": {
-          "type": "text",
+        "ea58e0d6-7336-4630-97a6-be4bd0a2666c": {
+          "type": "description",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
           }
         },
-        "price": {
-          "type": "price"
-        },
-        "variant_picker": {
-          "type": "variant_picker",
+        "e708d1f7-23c5-4440-af6a-dfba1520d240": {
+          "type": "nutrition_facts_drawer",
           "settings": {
-            "picker_type": "button"
+            "title": "Nutrition Facts",
+            "serving_size": "{{ product.metafields.custom.nutrition_facts.value.serving_size.value }}",
+            "calories": "{{ product.metafields.custom.nutrition_facts.value.calories.value }}",
+            "total_fat": "{{ product.metafields.custom.nutrition_facts.value.total_fat.value }}",
+            "satured_fat": "{{ product.metafields.custom.nutrition_facts.value.saturated_fat.value }}",
+            "trans_fat": "{{ product.metafields.custom.nutrition_facts.value.trans_fat.value }}",
+            "cholesterol": "{{ product.metafields.custom.nutrition_facts.value.cholesterol.value }}",
+            "sodium": "{{ product.metafields.custom.nutrition_facts.value.sodium.value }}",
+            "total_carbohydrates": "{{ product.metafields.custom.nutrition_facts.value.total_carbohydrates.value }}",
+            "dietary_fiber": "{{ product.metafields.custom.nutrition_facts.value.dietary_fiber.value }}",
+            "total_sugar": "{{ product.metafields.custom.nutrition_facts.value.total_sugar.value }}",
+            "protein": "{{ product.metafields.custom.nutrition_facts.value.protein.value }}",
+            "vitamin_d": "{{ product.metafields.custom.nutrition_facts.value.vitamin_d.value }}",
+            "calcium": "{{ product.metafields.custom.nutrition_facts.value.calcium.value }}",
+            "iron": "{{ product.metafields.custom.nutrition_facts.value.iron.value }}",
+            "potassium": "{{ product.metafields.custom.nutrition_facts.value.potassium.value }}",
+            "ingredients": "<p>{{ product.metafields.product.ingredients | metafield_tag }}<\/p>",
+            "allergens": "<p>{{ product.metafields.custom.nutrition_facts.value.allergens | metafield_tag }}<\/p>"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "5053de57-7edc-46f5-95d3-14ed0a04e821": {
+          "type": "good_for",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "title": "Good for:",
+            "good_for_1_logo": "{{ product.metafields.custom.good_for_icon_1.value }}",
+            "good_for_1_text": "{{ product.metafields.custom.good_for_text_1.value }}",
+            "good_for_2_logo": "{{ product.metafields.custom.good_for_icon_2.value }}",
+            "good_for_2_text": "{{ product.metafields.custom.good_for_text_2.value }}"
           }
         },
-        "description": {
-          "type": "description"
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "380403f0-e980-4e7a-97d7-fabdc594ad9e": {
+          "type": "checkout_button",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "caption",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "ef337366-5c3d-42c9-b8e7-7608d8cf0da8",
+        "ea58e0d6-7336-4630-97a6-be4bd0a2666c",
+        "e708d1f7-23c5-4440-af6a-dfba1520d240",
+        "5053de57-7edc-46f5-95d3-14ed0a04e821",
+        "380403f0-e980-4e7a-97d7-fabdc594ad9e"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "subtitle": "Premium Protein Bars",
+        "onetime_message": true,
+        "subscribe_message": true,
+        "how_it_works": true,
+        "headline": "Out of stock",
+        "subheadline": "Get notified when we have more in stock.",
+        "success_message": "We will notify you as soon as possible!!"
       }
     },
     "image-with-text": {

@@ -1,6 +1,6 @@
 {% assign selected_variant = product.selected_or_first_available_variant %}
 {% assign accent_color = '#DD3E6B' %}
-<p class="tw-text-8xl tw-text-red-500">AQUI</p>
+
 <section
   id="main-product"
   class="tw-pt-[19px] tw-pb-[57px] tablet:tw-pt-[53px] desk:tw-pt-[88px] desk:tw-pb-[118px] {% if product.title contains 'Salted Caramel' %} salted-caramel {% elsif product.title contains 'Tart Cherry' %} tart-cherry {% endif %}"
@@ -12,51 +12,75 @@
   <div class="desk:tw-max-w-container-large tw-mx-auto tw-flex tw-flex-col large:tw-flex-row tw-gap-9">
     <div class="tw-w-full large:tw-w-7/12 tw-flex tw-flex-col large:tw-flex-row-reverse tw-gap-6 tw-overflow-hidden">
       <div x-data="pdpSwiperComponent" class="tw-w-full tw-h-full large:tw-relative">
-        <!-- Swiper -->
+        <!-- Main Swiper -->
         <div class="tw-px-8 tablet:tw-px-6">
           <div
             class="swiper pdp-main-swiper large:!tw-h-[590px] large:!tw-w-4/5 desk:!tw-w-[572px] !tw-border-2 !tw-border-opacity-50 !tw-aspect-square large:!tw-ml-auto large:!tw-absolute !tw-right-0 !tw-z-10"
             style="border-color: {{ accent_color }};"
           >
             <div class="swiper-wrapper">
-              {% for item in (0..5) %}
-                {% if product.media[item] %}
-                  <div class="swiper-slide !tw-block">
-                    {% render 'image-element',
-                      image: product.media[item].src,
-                      lazy: true,
-                      class: 'tw-w-full tw-h-full tw-object-cover'
-                    %}
-                    {% comment %} <img src="{{ product.media[item].src | image_url: width: 500 }}" class="tw-w-full tw-h-full tw-object-cover" alt="{{ product.media[item].src.alt | default: shop.name }}" width="{{ product.media[item].src.width }}" height="{{ product.media[item].src.height }}"> {% endcomment %}
-                  </div>
-                {% endif %}
+              {% for media in product.media %}
+                {% liquid
+                  if forloop.first
+                    assign loading = 'eager'
+                  else
+                    assign loading = 'lazy'
+                  endif
+                %}
+                <div class="swiper-slide !tw-block">
+                  <img
+                    src="{{ media | image_url: width: 500 }}"
+                    class="tw-w-full tw-h-full tw-object-cover"
+                    alt="{{ media.alt | default: shop.name }}"
+                    width="{{ media.width }}"
+                    height="{{ media.height }}"
+                    loading="{{ loading }}"
+                    srcset="
+                      {{ media | image_url: width: 280 }} 280w,
+                      {{ media | image_url: width: 480 }} 480w,
+                      {{ media | image_url: width: 768 }} 768w,
+                      {{ media | image_url: width: 1024 }} 1024w,
+                      {{ media | image_url: width: 1280 }} 1280w,
+                      {{ media | image_url: width: 1560 }} 1560w,
+                      {{ media | image_url: width: 1920 }} 1920w
+                    "
+                    sizes="
+                      (max-width: 480px) 280px,
+                      (max-width: 768px) 480px,
+                      (max-width: 1024px) 768px,
+                      (max-width: 1280px) 1024px,
+                      (max-width: 1560px) 1280px,
+                      (max-width: 1920px) 1560px,
+                      1920px
+                    "
+                  >
+                </div>
               {% endfor %}
             </div>
           </div>
         </div>
+        <!-- End Main Swiper -->
+        <!-- Thumbs Swiper -->
         <div
           thumbsSlider=""
           class="swiper pdp-thumb-swiper large:!tw-h-[592px] !tw-ml-8 tablet:!tw-ml-6 !tw-py-5 tablet:!tw-py-6 large:!tw-py-0 wide-desk:!tw-m-0"
         >
           <div class="swiper-wrapper large:!tw-flex-col large:!tw-gap-[0.875rem] ">
-            {% for item in (0..5) %}
-              <div class="swiper-slide !tw-aspect-[1.1724] !tw-flex-grow !tw-min-w-[92.73px] tablet:!tw-w-[118px] large:!tw-m-0 large:!tw-w-[94.35px] large:!tw-h-[80.47px] xl:!tw-w-[102px] xl:!tw-h-[87px] !tw-overflow-hidden">
-                {% if product.media[item] %}
-                  {% render 'image-element',
-                    image: product.media[item].src,
-                    lazy: true,
-                    class: 'tw-w-full tw-h-full tw-object-cover'
-                  %}
-                {% else %}
-                  <div
-                    class="tw-w-full tw-h-full !tw-bg-transparent"
-                  ></div>
-                {% endif %}
+            {% for media in product.media %}
+              <div class="swiper-slide !tw-aspect-[1.1724] !tw-flex-grow !tw-min-w-[92.73px] tablet:!tw-w-[118px] large:!tw-m-0 large:!tw-w-[94.35px] large:!tw-h-[80.47px] xl:!tw-w-[102px] xl:!tw-h-[87px] !tw-overflow-hidden tw-opacity-40">
+                <img
+                  src="{{ media | image_url: width: 200 }}"
+                  class="tw-w-full tw-h-full tw-object-cover"
+                  alt="{{ media.alt | default: shop.name }}"
+                  width="{{ media.width }}"
+                  height="{{ media.height }}"
+                  loading="eager"
+                >
               </div>
             {% endfor %}
           </div>
         </div>
-        <!-- Swiper end -->
+        <!-- End Thumbs Swiper -->
       </div>
     </div>
     <div class="tw-px-8 tablet:tw-px-6 large:tw-px-0 tw-w-full large:tw-w-5/12">

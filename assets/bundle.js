@@ -12411,7 +12411,8 @@ module_default.data("pdpSwiperComponent", () => ({
           }
         }
       });
-      new Swiper(".mySwiper2", {
+      new Swiper(".pdp-main-swiper", {
+        // loop: true,
         spaceBetween: 10,
         thumbs: {
           swiper
