@@ -89,6 +89,8 @@
       >
         {% for block in section.blocks %}
           {% case block.type %}
+            {%- when '@app' -%}
+              {% render block %}
             {% when 'title' %}
               <div class="tablet:tw-flex large:tw-block">
                 <h1 class="tw-w-full tablet:tw-w-1/2 large:tw-w-full tw-font-gotham-book tw-text-3xl tablet:tw-text-4xl tw-leading-[30px] tablet:tw-leading-9 tw-tracking-[-0.04em]">
@@ -460,6 +462,9 @@
     }
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "title",
       "name": "Title",

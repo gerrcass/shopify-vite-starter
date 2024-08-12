@@ -8,6 +8,26 @@
           "settings": {
           }
         },
+        "recharge_subscriptions_subscription_widget_hefcpF": {
+          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "subscriptions_app_block_McRKA7": {
+          "type": "shopify:\/\/apps\/subscriptions\/blocks\/app-block\/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
+          "settings": {
+            "color_text_title": "#6D7175",
+            "color_text_body": "#6D7175",
+            "dividers_color": "#8F8D8D",
+            "bacgkround_color": "#FFFFFF",
+            "border_thickness": 1,
+            "border_radius": 0,
+            "supporting_text_title": "Purchase options",
+            "subscription_policy_url": "",
+            "product": "{{product}}"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -17,19 +37,23 @@
           "type": "description",
           "settings": {
           }
-        },
-        "380403f0-e980-4e7a-97d7-fabdc594ad9e": {
-          "type": "checkout_button",
-          "settings": {
-          }
         }
       },
       "block_order": [
         "title",
+        "recharge_subscriptions_subscription_widget_hefcpF",
+        "subscriptions_app_block_McRKA7",
         "price",
         "description"
       ],
       "settings": {
+        "subtitle": "Premium Protein Bars",
+        "onetime_message": true,
+        "subscribe_message": true,
+        "how_it_works": true,
+        "headline": "Out of stock",
+        "subheadline": "Get notified when we have more in stock.",
+        "success_message": "We will notify you as soon as possible!!"
       }
     },
     "image-with-text": {
