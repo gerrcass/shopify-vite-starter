@@ -1,21 +1,8 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "main": {
       "type": "main-product-elevate",
       "blocks": {
-<<<<<<< HEAD
-        "ef337366-5c3d-42c9-b8e7-7608d8cf0da8": {
-          "type": "title",
-=======
         "vendor": {
           "type": "text",
           "settings": {
@@ -30,19 +17,9 @@
         },
         "caption": {
           "type": "text",
->>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
           "settings": {
           }
         },
-<<<<<<< HEAD
-        "ea58e0d6-7336-4630-97a6-be4bd0a2666c": {
-          "type": "description",
-          "settings": {
-          }
-        },
-        "e708d1f7-23c5-4440-af6a-dfba1520d240": {
-          "type": "nutrition_facts_drawer",
-=======
         "price": {
           "type": "price",
           "settings": {
@@ -68,7 +45,6 @@
         },
         "buy_buttons": {
           "type": "buy_buttons",
->>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
           "settings": {
             "title": "Nutrition Facts",
             "serving_size": "{{ product.metafields.custom.nutrition_facts.value.serving_size.value }}",
@@ -90,10 +66,6 @@
             "allergens": "<p>{{ product.metafields.custom.nutrition_facts.value.allergens | metafield_tag }}<\/p>"
           }
         },
-<<<<<<< HEAD
-        "5053de57-7edc-46f5-95d3-14ed0a04e821": {
-          "type": "good_for",
-=======
         "description": {
           "type": "description",
           "settings": {
@@ -101,7 +73,6 @@
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
->>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
           "settings": {
             "title": "Good for:",
             "good_for_1_logo": "{{ product.metafields.custom.good_for_icon_1.value }}",
@@ -117,22 +88,6 @@
         }
       },
       "block_order": [
-<<<<<<< HEAD
-        "ef337366-5c3d-42c9-b8e7-7608d8cf0da8",
-        "ea58e0d6-7336-4630-97a6-be4bd0a2666c",
-        "e708d1f7-23c5-4440-af6a-dfba1520d240",
-        "5053de57-7edc-46f5-95d3-14ed0a04e821",
-        "380403f0-e980-4e7a-97d7-fabdc594ad9e"
-      ],
-      "settings": {
-        "subtitle": "Premium Protein Bars",
-        "onetime_message": true,
-        "subscribe_message": true,
-        "how_it_works": true,
-        "headline": "Out of stock",
-        "subheadline": "Get notified when we have more in stock.",
-        "success_message": "We will notify you as soon as possible!!"
-=======
         "vendor",
         "title",
         "caption",
@@ -162,7 +117,6 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
->>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
       }
     },
     "image-with-text": {
