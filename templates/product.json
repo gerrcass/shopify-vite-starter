@@ -3,84 +3,28 @@
     "main": {
       "type": "main-product-elevate",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
+    
         "title": {
           "type": "title",
           "settings": {
           }
         },
-        "caption": {
-          "type": "text",
-          "settings": {
-          }
-        },
+      
         "price": {
           "type": "price",
           "settings": {
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "recharge_subscriptions_subscription_widget_y8QPeX": {
-          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
-          "settings": {
-            "product": "{{product}}"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "title": "Nutrition Facts",
-            "serving_size": "{{ product.metafields.custom.nutrition_facts.value.serving_size.value }}",
-            "calories": "{{ product.metafields.custom.nutrition_facts.value.calories.value }}",
-            "total_fat": "{{ product.metafields.custom.nutrition_facts.value.total_fat.value }}",
-            "satured_fat": "{{ product.metafields.custom.nutrition_facts.value.saturated_fat.value }}",
-            "trans_fat": "{{ product.metafields.custom.nutrition_facts.value.trans_fat.value }}",
-            "cholesterol": "{{ product.metafields.custom.nutrition_facts.value.cholesterol.value }}",
-            "sodium": "{{ product.metafields.custom.nutrition_facts.value.sodium.value }}",
-            "total_carbohydrates": "{{ product.metafields.custom.nutrition_facts.value.total_carbohydrates.value }}",
-            "dietary_fiber": "{{ product.metafields.custom.nutrition_facts.value.dietary_fiber.value }}",
-            "total_sugar": "{{ product.metafields.custom.nutrition_facts.value.total_sugar.value }}",
-            "protein": "{{ product.metafields.custom.nutrition_facts.value.protein.value }}",
-            "vitamin_d": "{{ product.metafields.custom.nutrition_facts.value.vitamin_d.value }}",
-            "calcium": "{{ product.metafields.custom.nutrition_facts.value.calcium.value }}",
-            "iron": "{{ product.metafields.custom.nutrition_facts.value.iron.value }}",
-            "potassium": "{{ product.metafields.custom.nutrition_facts.value.potassium.value }}",
-            "ingredients": "<p>{{ product.metafields.product.ingredients | metafield_tag }}<\/p>",
-            "allergens": "<p>{{ product.metafields.custom.nutrition_facts.value.allergens | metafield_tag }}<\/p>"
-          }
-        },
+       
+    
+      
+        
         "description": {
           "type": "description",
           "settings": {
           }
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "title": "Good for:",
-            "good_for_1_logo": "{{ product.metafields.custom.good_for_icon_1.value }}",
-            "good_for_1_text": "{{ product.metafields.custom.good_for_text_1.value }}",
-            "good_for_2_logo": "{{ product.metafields.custom.good_for_icon_2.value }}",
-            "good_for_2_text": "{{ product.metafields.custom.good_for_text_2.value }}"
-          }
-        },
+     
         "380403f0-e980-4e7a-97d7-fabdc594ad9e": {
           "type": "checkout_button",
           "settings": {
@@ -88,19 +32,13 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
-        "caption",
         "price",
-        "variant_picker",
         "recharge_subscriptions_subscription_widget_y8QPeX",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
+        
         "share"
       ],
       "settings": {

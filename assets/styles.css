@@ -793,10 +793,6 @@ video {
   font-size: 30px;
   line-height: 36px;
 }
-.tw-text-8xl {
-  font-size: 96px;
-  line-height: 1;
-}
 .tw-text-base {
   font-size: 16px;
   line-height: 24px;
@@ -840,10 +836,6 @@ video {
 .tw-text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.tw-text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .tw-text-white {
   --tw-text-opacity: 1;
