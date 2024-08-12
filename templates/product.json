@@ -3,28 +3,21 @@
     "main": {
       "type": "main-product-elevate",
       "blocks": {
-    
         "title": {
           "type": "title",
           "settings": {
           }
         },
-      
         "price": {
           "type": "price",
           "settings": {
           }
         },
-       
-    
-      
-        
         "description": {
           "type": "description",
           "settings": {
           }
         },
-     
         "380403f0-e980-4e7a-97d7-fabdc594ad9e": {
           "type": "checkout_button",
           "settings": {
@@ -34,27 +27,9 @@
       "block_order": [
         "title",
         "price",
-        "recharge_subscriptions_subscription_widget_y8QPeX",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        
-        "share"
+        "description"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
       }
     },
     "image-with-text": {
