@@ -1,13 +1,40 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
       "type": "main-product-elevate",
       "blocks": {
+<<<<<<< HEAD
         "ef337366-5c3d-42c9-b8e7-7608d8cf0da8": {
+          "type": "title",
+=======
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
           "type": "title",
           "settings": {
           }
         },
+        "caption": {
+          "type": "text",
+>>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
+          "settings": {
+          }
+        },
+<<<<<<< HEAD
         "ea58e0d6-7336-4630-97a6-be4bd0a2666c": {
           "type": "description",
           "settings": {
@@ -15,6 +42,33 @@
         },
         "e708d1f7-23c5-4440-af6a-dfba1520d240": {
           "type": "nutrition_facts_drawer",
+=======
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "recharge_subscriptions_subscription_widget_y8QPeX": {
+          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+>>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
           "settings": {
             "title": "Nutrition Facts",
             "serving_size": "{{ product.metafields.custom.nutrition_facts.value.serving_size.value }}",
@@ -36,8 +90,18 @@
             "allergens": "<p>{{ product.metafields.custom.nutrition_facts.value.allergens | metafield_tag }}<\/p>"
           }
         },
+<<<<<<< HEAD
         "5053de57-7edc-46f5-95d3-14ed0a04e821": {
           "type": "good_for",
+=======
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+>>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
           "settings": {
             "title": "Good for:",
             "good_for_1_logo": "{{ product.metafields.custom.good_for_icon_1.value }}",
@@ -53,6 +117,7 @@
         }
       },
       "block_order": [
+<<<<<<< HEAD
         "ef337366-5c3d-42c9-b8e7-7608d8cf0da8",
         "ea58e0d6-7336-4630-97a6-be4bd0a2666c",
         "e708d1f7-23c5-4440-af6a-dfba1520d240",
@@ -67,6 +132,37 @@
         "headline": "Out of stock",
         "subheadline": "Get notified when we have more in stock.",
         "success_message": "We will notify you as soon as possible!!"
+=======
+        "vendor",
+        "title",
+        "caption",
+        "price",
+        "variant_picker",
+        "recharge_subscriptions_subscription_widget_y8QPeX",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "collapsible-row-3",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+>>>>>>> 40fb7f74b1778336be3e0a8c0598552a8c7eaa20
       }
     },
     "image-with-text": {
@@ -98,7 +194,9 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
+        "section_color_scheme": "",
         "color_scheme": "scheme-2",
+        "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
@@ -140,9 +238,9 @@
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -152,9 +250,11 @@
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
