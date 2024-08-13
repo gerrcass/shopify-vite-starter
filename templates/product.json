@@ -51,20 +51,15 @@
             "good_for_2_text": "Balance"
           }
         },
-        "price": {
-          "type": "price",
-          "settings": {
-          }
-        },
         "recharge_subscriptions_subscription_widget_hefcpF": {
           "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "disabled": true,
           "settings": {
             "product": "cherry-vanilla-fusion"
           }
         },
         "subscriptions_app_block_McRKA7": {
           "type": "shopify:\/\/apps\/subscriptions\/blocks\/app-block\/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
-          "disabled": true,
           "settings": {
             "color_text_title": "#6d7175",
             "color_text_body": "#6d7175",
@@ -77,12 +72,9 @@
             "product": "{{product}}"
           }
         },
-        "good_for_6eW6Fq": {
-          "type": "good_for",
+        "price": {
+          "type": "price",
           "settings": {
-            "title": "",
-            "good_for_1_text": "",
-            "good_for_2_text": ""
           }
         },
         "checkout_button_jLPziP": {
@@ -97,10 +89,9 @@
         "nutrition_facts_NFM6eH",
         "nutrition_facts_drawer_iUMF4H",
         "good_for_4QfGP9",
-        "price",
         "recharge_subscriptions_subscription_widget_hefcpF",
         "subscriptions_app_block_McRKA7",
-        "good_for_6eW6Fq",
+        "price",
         "checkout_button_jLPziP"
       ],
       "settings": {
