@@ -67,7 +67,7 @@
             "bacgkround_color": "#ffffff",
             "border_thickness": 1,
             "border_radius": 0,
-            "supporting_text_title": "Purchase options",
+            "supporting_text_title": "Choose your price (12 Bars)",
             "subscription_policy_url": "",
             "product": "{{product}}"
           }

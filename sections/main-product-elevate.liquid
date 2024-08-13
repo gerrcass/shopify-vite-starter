@@ -20,40 +20,51 @@
           >
             <div class="swiper-wrapper">
               {% for media in product.media %}
-                {% liquid
-                  if forloop.first
-                    assign loading = 'eager'
-                  else
-                    assign loading = 'lazy'
-                  endif
-                %}
                 <div class="swiper-slide !tw-block">
-                  <img
-                    src="{{ media | image_url: width: 500 }}"
-                    class="tw-w-full tw-h-full tw-object-cover"
-                    alt="{{ media.alt | default: shop.name }}"
-                    width="{{ media.width }}"
-                    height="{{ media.height }}"
-                    loading="{{ loading }}"
-                    srcset="
-                      {{ media | image_url: width: 280 }} 280w,
-                      {{ media | image_url: width: 480 }} 480w,
-                      {{ media | image_url: width: 768 }} 768w,
-                      {{ media | image_url: width: 1024 }} 1024w,
-                      {{ media | image_url: width: 1280 }} 1280w,
-                      {{ media | image_url: width: 1560 }} 1560w,
-                      {{ media | image_url: width: 1920 }} 1920w
-                    "
-                    sizes="
-                      (max-width: 480px) 280px,
-                      (max-width: 768px) 480px,
-                      (max-width: 1024px) 768px,
-                      (max-width: 1280px) 1024px,
-                      (max-width: 1560px) 1280px,
-                      (max-width: 1920px) 1560px,
-                      1920px
-                    "
-                  >
+                  {% if forloop.first %}
+                    {% comment %} assign img_loading = 'eager' {% endcomment %}
+                    {{
+                      media
+                      | image_url: width: 600
+                      | image_tag: preload: true, loading: 'eager', class: 'tw-w-full tw-h-full tw-object-cover WHAT2'
+                    }}
+
+                  {% else %}
+                    {% comment %} assign img_loading = 'lazy' {% endcomment %}
+                    {{
+                      media
+                      | image_url: width: 600
+                      | image_tag: loading: 'lazy', class: 'tw-w-full tw-h-full tw-object-cover'
+                    }}
+                  {% endif %}
+                  {% comment %}
+                    <img
+                      src="{{ media | image_url: width: 500 }}"
+                      class="tw-w-full tw-h-full tw-object-cover"
+                      alt="{{ media.alt | default: shop.name }}"
+                      width="{{ media.width }}"
+                      height="{{ media.height }}"
+                      loading="{{ img_loading }}"
+                      srcset="
+                        {{ media | image_url: width: 280 }} 280w,
+                        {{ media | image_url: width: 480 }} 480w,
+                        {{ media | image_url: width: 768 }} 768w,
+                        {{ media | image_url: width: 1024 }} 1024w,
+                        {{ media | image_url: width: 1280 }} 1280w,
+                        {{ media | image_url: width: 1560 }} 1560w,
+                        {{ media | image_url: width: 1920 }} 1920w
+                      "
+                      sizes="
+                        (max-width: 480px) 280px,
+                        (max-width: 768px) 480px,
+                        (max-width: 1024px) 768px,
+                        (max-width: 1280px) 1024px,
+                        (max-width: 1560px) 1280px,
+                        (max-width: 1920px) 1560px,
+                        1920px
+                      "
+                    >
+                  {% endcomment %}
                 </div>
               {% endfor %}
             </div>
@@ -68,14 +79,21 @@
           <div class="swiper-wrapper large:!tw-flex-col large:!tw-gap-[0.875rem] ">
             {% for media in product.media %}
               <div class="swiper-slide !tw-aspect-[1.1724] !tw-flex-grow !tw-min-w-[92.73px] tablet:!tw-w-[118px] large:!tw-m-0 large:!tw-w-[94.35px] large:!tw-h-[80.47px] xl:!tw-w-[102px] xl:!tw-h-[87px] !tw-overflow-hidden tw-opacity-40">
-                <img
-                  src="{{ media | image_url: width: 200 }}"
-                  class="tw-w-full tw-h-full tw-object-cover"
-                  alt="{{ media.alt | default: shop.name }}"
-                  width="{{ media.width }}"
-                  height="{{ media.height }}"
-                  loading="eager"
-                >
+                {% comment %}
+                  <img
+                    src="{{ media | image_url: width: 200 }}"
+                    class="tw-w-full tw-h-full tw-object-cover"
+                    alt="{{ media.alt | default: shop.name }}"
+                    width="{{ media.width }}"
+                    height="{{ media.height }}"
+                    loading="eager"
+                  >
+                {% endcomment %}
+                {{
+                  media
+                  | image_url: width: 200
+                  | image_tag: loading: 'eager', class: 'tw-w-full tw-h-full tw-object-cover'
+                }}
               </div>
             {% endfor %}
           </div>
@@ -89,7 +107,7 @@
       >
         {% for block in section.blocks %}
           {% case block.type %}
-            {%- when '@app' -%}
+            {% when '@app' %}
               {% render block %}
             {% when 'title' %}
               <div class="tablet:tw-flex large:tw-block">
@@ -366,7 +384,7 @@
                   </div>
                 {% endif %}
               </div>
-            {%- when 'price' -%}
+            {% when 'price' %}
               <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price',
                   product: product,
