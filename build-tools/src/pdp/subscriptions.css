@@ -1,0 +1,61 @@
+
+#shopify-block-subscriptions_app_block_McRKA7 {
+    max-width: 39.6rem;;
+    margin-top: 1.4rem;
+}
+#shopify-block-subscriptions_app_block_McRKA7 fieldset > div{
+    display: flex;
+    flex-direction: column-reverse;
+    border:none !important;
+    gap: 2rem;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label > .shopify_subscriptions_purchase_option_wrapper,
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_policy{
+    display: none;   
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label_children,
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label{
+    padding: 0;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label_children label,
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_purchase_option_wrapper label{
+    display: flex;
+    align-items: center;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label_children label{
+    border: 1px solid black;
+}
+
+
+#shopify-block-subscriptions_app_block_McRKA7 label{
+    display: block;
+    width: 100%;
+    padding: 16px;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label.shopify_subscriptions_purchase_option_wrapper{
+    display: flex;
+    flex-direction: column;
+    border:none !important;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app_block_label.shopify_subscriptions_purchase_option_wrapper label{
+    border: 1px solid black;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .subsave-description{
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1.2rem 1.6rem;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#shopify-block-subscriptions_app_block_McRKA7 input[type="radio"],
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_in_widget_price{
+    display: none;
+}
+#shopify-block-subscriptions_app_block_McRKA7 .shopify_subscriptions_app__title{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+    color: rgb(18,18,18) !important;
+    margin-bottom: 0.6rem;
+}

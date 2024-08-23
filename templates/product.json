@@ -45,10 +45,10 @@
           "type": "good_for",
           "settings": {
             "title": "Good For:",
-            "good_for_1_logo": "shopify:\/\/shop_images\/good_for_icon_1.png",
-            "good_for_1_text": "Mental Clarity",
-            "good_for_2_logo": "shopify:\/\/shop_images\/good_for_icon_2.png",
-            "good_for_2_text": "Balance"
+            "good_for_1_logo": "{{ product.metafields.custom.good_for_icon_1.value }}",
+            "good_for_1_text": "{{ product.metafields.custom.good_for_text_1.value }}",
+            "good_for_2_logo": "{{ product.metafields.custom.good_for_icon_2.value }}",
+            "good_for_2_text": "{{ product.metafields.custom.good_for_text_2.value }}"
           }
         },
         "recharge_subscriptions_subscription_widget_hefcpF": {
@@ -67,14 +67,9 @@
             "bacgkround_color": "#ffffff",
             "border_thickness": 1,
             "border_radius": 0,
-            "supporting_text_title": "Choose your price (12 Bars)",
+            "supporting_text_title": "Choose your price (12 Bars):",
             "subscription_policy_url": "",
             "product": "{{product}}"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
           }
         },
         "checkout_button_jLPziP": {
@@ -91,14 +86,14 @@
         "good_for_4QfGP9",
         "recharge_subscriptions_subscription_widget_hefcpF",
         "subscriptions_app_block_McRKA7",
-        "price",
         "checkout_button_jLPziP"
       ],
       "settings": {
         "subtitle": "Premium Protein Bars",
-        "onetime_message": true,
-        "subscribe_message": true,
-        "how_it_works": true,
+        "onetime_message": "One-time Purchase (12 Bars)",
+        "subscribe_message": "Subscribe & Save",
+        "how_it_works": "Products are automatically delivered on your schedule. No obligation, modify or cancel your subscription anytime",
+        "default_option": "subscribe",
         "headline": "Out of stock",
         "subheadline": "Get notified when we have more in stock.",
         "success_message": "We will notify you as soon as possible!!"

@@ -15,9 +15,9 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style">
-    <link rel="preload" href="{{ 'styles.css' | asset_url }}" as="style">
-    <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
+    {{ 'base.css' | asset_url | preload_tag: as: 'style' }}
+    {{ 'styles.css' | asset_url | preload_tag: as: 'style' }}
+    {{ 'bundle.js' | asset_url | preload_tag: as: 'script' }}
 
     <title>
       {{ page_title }}
@@ -46,7 +46,7 @@
     {{ content_for_header }}
 
     {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', '600'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}

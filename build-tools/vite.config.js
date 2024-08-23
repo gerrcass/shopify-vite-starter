@@ -14,6 +14,7 @@ export default defineConfig({
         dir: path.resolve(__dirname, '../assets'),
         entryFileNames: 'bundle.js',
         assetFileNames: 'styles.css', // Bundle all styles into styles.css
+        format: 'iife', //https://shopify.dev/docs/storefronts/themes/best-practices/performance#avoid-namespace-collisions
       },
     },
   },

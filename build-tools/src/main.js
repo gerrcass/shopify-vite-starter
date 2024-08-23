@@ -1,7 +1,9 @@
-import './tailwind.css';
 import Alpine from 'alpinejs';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+
+import './tailwind.css';
+import subscriptions from './pdp/subscriptions';
 
 // Make Alpine.js available globally
 window.Alpine = Alpine;
@@ -41,6 +43,8 @@ Alpine.data('pdpSwiperComponent', () => ({
     }
   },
 }));
+
+subscriptions();
 
 // Start Alpine.js
 Alpine.start();
