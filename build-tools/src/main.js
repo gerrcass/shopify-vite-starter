@@ -2,11 +2,13 @@ import Alpine from 'alpinejs';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
+// Make Alpine.js available globally
+window.Alpine = Alpine;
+
 import './tailwind.css';
 import subscriptions from './pdp/subscriptions';
 
-// Make Alpine.js available globally
-window.Alpine = Alpine;
+import './gsap.js';
 
 // Define an Alpine component
 Alpine.data('pdpSwiperComponent', () => ({
