@@ -13,6 +13,11 @@
           "settings": {
           }
         },
+        "nutrition_facts_NFM6eH": {
+          "type": "nutrition_facts",
+          "settings": {
+          }
+        },
         "nutrition_facts_drawer_iUMF4H": {
           "type": "nutrition_facts_drawer",
           "settings": {
@@ -76,6 +81,7 @@
       "block_order": [
         "title",
         "description",
+        "nutrition_facts_NFM6eH",
         "nutrition_facts_drawer_iUMF4H",
         "good_for_4QfGP9",
         "recharge_subscriptions_subscription_widget_hefcpF",

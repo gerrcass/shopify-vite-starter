@@ -5,7 +5,7 @@ export default defineConfig({
   root: path.resolve(__dirname),
   build: {
     emptyOutDir: false,
-    minify: true,
+    minify: false,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'src/main.js'), // JavaScript entry entry point
@@ -14,7 +14,7 @@ export default defineConfig({
         dir: path.resolve(__dirname, '../assets'),
         entryFileNames: 'bundle.js',
         assetFileNames: 'styles.css', // Bundle all styles into styles.css
-        // format: 'iife', //https://shopify.dev/docs/storefronts/themes/best-practices/performance#avoid-namespace-collisions
+        format: 'iife', //https://shopify.dev/docs/storefronts/themes/best-practices/performance#avoid-namespace-collisions
       },
     },
   },
