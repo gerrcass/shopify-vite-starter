@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "alpinejs": "^3.14.1",
-    "gsap": "^3.12.5",
     "swiper": "^11.1.9"
   }
 }

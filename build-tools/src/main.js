@@ -2,8 +2,6 @@ import Alpine from 'alpinejs';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
-import './gsap';
-
 import './tailwind.css';
 import subscriptions from './pdp/subscriptions';
 
