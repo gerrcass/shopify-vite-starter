@@ -2,11 +2,18 @@ import Alpine from 'alpinejs';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+// import { ScrollSmoother } from 'gsap/ScrollSmoother';
+// import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+
+// let isInView = ScrollTrigger.isInViewport(box) ? "👀" : "🙈"
+// onRefresh: (selft) => console.log(`Box ${loopIndex}+1`, isInView, self.start, self.end)
 
 Alpine.data('gsapHorzSnap', () => ({
   init() {
+    gsap.registerPlugin(ScrollTrigger);
     let sections = gsap.utils.toArray('.panel', this.$el);
+
+    // console.log('min: 0', `max:${ScrollTrigger.maxScroll(window)}`);
 
     let scrollTween = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
@@ -76,6 +83,7 @@ Alpine.data('gsapHorzSnap', () => ({
       onEnterBack: () => console.log('enterBack'),
       onLeaveBack: () => console.log('leaveBack'),
       onToggle: (self) => console.log('active', self.isActive),
+      onUpdate: (self) => console.log('👀 ', self.start, self.end),
       id: '4',
     });
 
@@ -96,6 +104,32 @@ Alpine.data('gsapHorzSnap', () => ({
             autoAlpha: self.isActive ? 1 : 0,
           }),
       });
+    });
+  },
+}));
+
+Alpine.data('gsapScrollsmoothScrolltriggerClamp', () => ({
+  init() {
+    // CodePen: https://codepen.io/GreenSock/pen/JjmLLWZ
+    // gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
+    gsap.registerPlugin(ScrollTrigger);
+
+    let smoother = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+    });
+
+    gsap.from('.draw', {
+      drawSVG: '0%',
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: '.heading',
+        start: 'clamp(top center)',
+        scrub: true,
+        pin: '.pin',
+        pinSpacing: false,
+        markers: true,
+      },
     });
   },
 }));

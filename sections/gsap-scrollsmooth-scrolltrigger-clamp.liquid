@@ -1,0 +1,170 @@
+{{ 'test.css' | asset_url | stylesheet_tag }}
+
+<script>
+  // Load the Unbounded font
+  const link = document.createElement('link');
+  link.href = 'https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap';
+  link.rel = 'stylesheet';
+  document.head.appendChild(link);
+</script>
+
+{% style %}
+  .section-{{ section.id }} .pin-spacer {
+    pointer-events: none;
+  }
+
+  :root {
+    --f-5-min: 30;
+  	--f-5-max: 120;
+  	--step-5: calc(
+  		((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+  			var(--fluid-bp));
+  }
+
+
+  .section-{{ section.id }} button {
+    cursor: pointer;
+  }
+
+  .section-{{ section.id }} button:hover {
+    background: var(--purple);
+    background-image: none;
+  }
+
+  .section-{{ section.id }} .hero {
+    min-height: 100vh;
+  }
+
+
+  .section-{{ section.id }} h1 {
+    font-family: 'Unbounded', sans-serif;
+    position: relative;
+    font-size: var(--step-5);
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+  }
+
+  .section-{{ section.id }} .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: stretch;
+    justify-items: center;
+    margin-top: 2rem;
+  }
+
+  .section-{{ section.id }} img {
+    max-width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+
+  .section-{{ section.id }} .spacer {
+    height: 100vh
+  }
+
+  .section-{{ section.id }} .clamp {
+    position: relative;
+    z-index: -1
+  }
+  .section-{{ section.id }} .yt {
+    z-index: 3
+  }
+
+  .section-{{ section.id }} .clamp svg {
+    position: absolute;
+    width: 112%;
+    top: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(2deg);
+    left: -6%;
+  }
+
+  .section-{{ section.id }} .heading {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: difference;
+     perspective:1000px;
+      -webkit-backface-visibility: visible;
+      backface-visibility: visible;
+  transform: rotate(0.1deg);
+  }
+  .section-{{ section.id }} .images {
+    z-index: -1
+  }
+
+  .section-{{ section.id }} .logo svg {
+    opacity: 0
+  }
+{% endstyle %}
+
+<section
+  id="smooth-wrapper"
+  x-data="gsapScrollsmoothScrolltriggerClamp"
+  class="section-{{ section.id }} tw-bg-[#0e100f]"
+>
+  <div id="smooth-content" class="tw-py-20">
+    <section class="hero pad-l">
+      <div class="heading">
+        <div class="pin">
+          <h1>
+            <span class="clamp"
+              >Easy
+              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 842.14 500">
+                <path class="draw" d="M336.2,130.05C261.69,118,16.52,122,20.65,244.29c4.17,123,484.3,299.8,734.57,108.37,244-186.65-337.91-311-546.54-268.47" fill="none" stroke="#8486aa" stroke-miterlimit="10" stroke-width="8" />
+              </svg></span
+            ><span class="yt">epic choices</span>
+          </h1>
+        </div>
+      </div>
+      <div class="images">
+        <img
+          data-speed="clamp(2.4)"
+          src="https://images.unsplash.com/photo-1530569673472-307dc017a82d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODM2NTUwMDA&ixlib=rb-4.0.3&q=80&w=400"
+          alt=""
+        >
+        <img
+          data-speed="clamp(1.8)"
+          src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODM2NTQ5Njk&ixlib=rb-4.0.3&q=80&w=400"
+          alt=""
+        >
+        <img
+          data-speed="clamp(2.2)"
+          src="https://images.unsplash.com/photo-1551376347-075b0121a65b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODM2NTQ5MTE&ixlib=rb-4.0.3&q=80&w=400"
+          alt=""
+        >
+        <img
+          data-speed="clamp(1.5)"
+          src="https://images.unsplash.com/photo-1500817487388-039e623edc21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODM2NTQ5MTE&ixlib=rb-4.0.3&q=80&w=400"
+          alt=""
+        >
+      </div>
+    </section>
+
+    <section class="spacer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</section>
+    <section class="spacer">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+    </section>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "GSAP (Smooth Trigger)",
+  "settings": [],
+  "presets": [
+    {
+      "name": "GSAP (Smooth Trigger)"
+    }
+  ]
+}
+{% endschema %}

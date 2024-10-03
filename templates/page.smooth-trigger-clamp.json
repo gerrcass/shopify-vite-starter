@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "gsap-scrollsmooth-scrolltrigger-clamp",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
