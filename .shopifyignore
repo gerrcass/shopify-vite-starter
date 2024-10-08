@@ -13,3 +13,6 @@ README.md
 LICENSE.md
 release-notes.md
 translation.yml
+
+# Other files #
+/\.(txt|md|lock)$/
