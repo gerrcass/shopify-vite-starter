@@ -1,6 +1,15 @@
+node_modules
+package.json
+package-lock.json
 build-tools/
+build-tools/node_modules
+build-tools/package.json
+build-tools/package-lock.json
 .vscode/
 .gitignore
+.prettierrc
 .theme-check.yml
 README.md
 LICENSE.md
+release-notes.md
+translation.yml
